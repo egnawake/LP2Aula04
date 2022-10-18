@@ -18,10 +18,11 @@ public class Exercicio2 : MonoBehaviour
 
     private IEnumerator SayHello()
     {
+        WaitForSeconds wfs = new WaitForSeconds(4);
         while (true)
         {
             Debug.Log("Hello");
-            yield return new WaitForSeconds(4);
+            yield return wfs;
         }
     }
 }
