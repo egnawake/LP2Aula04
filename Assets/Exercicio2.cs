@@ -7,7 +7,8 @@ public class Exercicio2 : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        StartCoroutine(SayHello());
+        Coroutine sh = StartCoroutine(SayHello());
+        Coroutine count = StartCoroutine(CountToThirty());
     }
 
     // Update is called once per frame
@@ -22,6 +23,16 @@ public class Exercicio2 : MonoBehaviour
         while (true)
         {
             Debug.Log("Hello");
+            yield return wfs;
+        }
+    }
+
+    private IEnumerator CountToThirty()
+    {
+        WaitForSeconds wfs = new WaitForSeconds(1);
+        for (int i = 0; i < 30; i++)
+        {
+            Debug.Log(i);
             yield return wfs;
         }
     }
