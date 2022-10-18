@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Exercicio2 : MonoBehaviour
 {
+    private Coroutine sh;
+
     // Start is called before the first frame update
     private void Start()
     {
-        Coroutine sh = StartCoroutine(SayHello());
+        sh = StartCoroutine(SayHello());
         Coroutine count = StartCoroutine(CountToThirty());
     }
 
@@ -30,10 +32,11 @@ public class Exercicio2 : MonoBehaviour
     private IEnumerator CountToThirty()
     {
         WaitForSeconds wfs = new WaitForSeconds(1);
-        for (int i = 0; i < 30; i++)
+        for (int i = 0; i <= 30; i++)
         {
             Debug.Log(i);
             yield return wfs;
         }
+        StopCoroutine(sh);
     }
 }
