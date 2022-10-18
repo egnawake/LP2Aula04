@@ -11,6 +11,7 @@ public class Exercicio2 : MonoBehaviour
     {
         sh = StartCoroutine(SayHello());
         Coroutine count = StartCoroutine(CountToThirty());
+        StartCoroutine(BeingPressed());
     }
 
     // Update is called once per frame
@@ -38,5 +39,15 @@ public class Exercicio2 : MonoBehaviour
             yield return wfs;
         }
         StopCoroutine(sh);
+    }
+
+    private IEnumerator BeingPressed()
+    {
+        CustomYieldInstruction wfak = new WaitForAnyKey();
+        while (true)
+        {
+            Debug.Log("Estou a ser pressionado!");
+            yield return wfak;
+        }
     }
 }
